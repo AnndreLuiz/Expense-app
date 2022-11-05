@@ -1,6 +1,6 @@
+import 'package:exp_app/screens/category_sreen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -14,6 +14,10 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      initialRoute: CategoryScreen.name,
+      routes: {
+        CategoryScreen.name: (_) => const CategoryScreen(), 
+      },
     );
   }
 }
