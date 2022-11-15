@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:exp_app/constants/icons.dart';
 class ExpenseCategory {
   final String title;
   int entries = 0;
@@ -12,5 +13,12 @@ class ExpenseCategory {
     required this.icon
   });
 
-  Map<String, dynamic> toMap() => {};
+  Map<String, dynamic> toMap() => {
+    'title':title,
+    'entries':entries,
+    'totalAmount':totalAmount.toString(),
+  };
+
+  factory ExpenseCategory.fromString(Map<String, dynamic> value) => ExpenseCategory
+  (title: value['title'], entries: value['entries'], totalAmount: double.parse(value['totalAmount']), icon: icons[value['title']]!);
 }
